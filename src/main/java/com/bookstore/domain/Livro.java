@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 public class Livro implements Serializable {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
