@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <!-- Define a versão do Spring Boot que será usada como base para o projeto -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.3</version>
@@ -27,37 +28,57 @@
         <url/>
     </scm>
     <properties>
+        <!-- Define a versão do Java a ser utilizada no projeto -->
         <java.version>22</java.version>
     </properties>
     <dependencies>
+        <!-- Starter para JPA (Java Persistence API), fornece suporte para persistência de dados -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
+        <!-- Starter para Thymeleaf, uma engine de templates para criar páginas HTML dinâmicas -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+        <!-- Starter para validação de dados, suporta validações através de anotações como @NotNull, @Size, etc. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+
+        <!-- Starter para construção de aplicações web, inclui Tomcat como servidor embutido e Spring MVC -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Dependência para ferramentas de desenvolvimento, como auto-restart em mudanças de código -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+        <!-- Conector JDBC para o banco de dados MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+        <!-- Banco de dados H2 em memória, útil para testes e desenvolvimento local -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- Starter para testes, inclui dependências como JUnit, Hamcrest, e Mockito -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -67,6 +88,7 @@
 
     <build>
         <plugins>
+            <!-- Plugin Maven do Spring Boot, permite empacotar a aplicação como um jar executável e outras tarefas do Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
