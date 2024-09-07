@@ -5,6 +5,7 @@ import com.bookstore.dtos.CategoriaDTO;
 import com.bookstore.repositories.CategoriaRepository;
 import com.bookstore.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,9 +55,12 @@ public class CategoriaService {
 
     // Método para deletar uma categoria pelo ID
     public void delete(Integer id) {
-        // Verifica se a categoria existe antes de deletar
         findById(id);
-        // Deleta a categoria pelo ID
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch(DataIntegrityViolationException e) {
+            throw new com.bookstore.service.exceptions.DataIntegrityViolationException("Não é possível excluir a categoria que possui livros associados.");
+        }
+
     }
 }

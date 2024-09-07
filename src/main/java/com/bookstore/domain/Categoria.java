@@ -16,7 +16,7 @@ public class Categoria implements Serializable {
     private String nome;
     private String descricao;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoria", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Livro> livros = new ArrayList<>();
 
     public Categoria(){}
