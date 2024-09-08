@@ -33,16 +33,22 @@ public class LivroService {
 
     }
 
-    public Livro update(Integer id, Livro obj){
-        Livro newObj = findById(id);
-        updateData(newObj, obj);
-        return repository.save(newObj);
+    public Livro update(Integer id, Livro partialLivro) {
+        Livro existingLivro = findById(id);
+        updateData(existingLivro, partialLivro);
+        return repository.save(existingLivro);
     }
 
-    private void updateData(Livro newObj, Livro obj) {
-        newObj.setTitulo(obj.getTitulo());
-        newObj.setNomeAutor(obj.getNomeAutor());
-        newObj.setTexto(obj.getTexto());
-        newObj.setTexto(obj.getTexto());
+    private void updateData(Livro existingLivro, Livro partialLivro) {
+        if (partialLivro.getTitulo() != null) {
+            existingLivro.setTitulo(partialLivro.getTitulo());
+        }
+        if (partialLivro.getNomeAutor() != null) {
+            existingLivro.setNomeAutor(partialLivro.getNomeAutor());
+        }
+        if (partialLivro.getTexto() != null) {
+            existingLivro.setTexto(partialLivro.getTexto());
+        }
+        // Adicionar mais verificações caso necessário
     }
 }
