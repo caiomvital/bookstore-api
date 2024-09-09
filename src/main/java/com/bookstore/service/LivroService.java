@@ -1,6 +1,7 @@
 package com.bookstore.service;
 
 
+import com.bookstore.domain.Categoria;
 import com.bookstore.domain.Livro;
 import com.bookstore.repositories.LivroRepository;
 import com.bookstore.service.exceptions.ObjectNotFoundException;
@@ -51,4 +52,12 @@ public class LivroService {
         }
         // Adicionar mais verificações caso necessário
     }
+
+    public Livro create(Integer id_cat, Livro obj){
+        obj.setId(null);
+        Categoria cat = categoriaService.findById(id_cat);
+        obj.setCategoria(cat);
+        return repository.save(obj);
+    }
+
 }

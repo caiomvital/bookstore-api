@@ -1,18 +1,22 @@
 package com.bookstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@JsonPropertyOrder({ "id","titulo", "nome_autor", "texto" })
 public class Livro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
+    @JsonProperty("nome_autor")
     private String nomeAutor;
     private String texto;
 
