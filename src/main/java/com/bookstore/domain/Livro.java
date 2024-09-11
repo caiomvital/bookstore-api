@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,9 +17,15 @@ public class Livro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotEmpty(message = "O campo TÍTULO é obrigatório")
+    @Length(min = 3, max = 50, message = "O campo TÍTULO deve ter entre 3 e 50 caracteres")
     private String titulo;
     @JsonProperty("nome_autor")
+    @NotEmpty(message = "O campo NOME DO AUTOR é obrigatório")
+    @Length(min = 3, max = 50, message = "O campo NOME DO AUTOR deve ter entre 3 e 50 caracteres")
     private String nomeAutor;
+    @NotEmpty
+    @Length(min = 10, max = 2_000_000, message = "O campo TEXTO deve ter entre 10 e 2.000.000 caracteres")
     private String texto;
 
     @JsonIgnore

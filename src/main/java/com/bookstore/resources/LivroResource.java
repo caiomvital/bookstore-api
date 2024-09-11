@@ -3,6 +3,7 @@ package com.bookstore.resources;
 import com.bookstore.domain.Livro;
 import com.bookstore.dtos.LivroDTO;
 import com.bookstore.service.LivroService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,14 +37,14 @@ public class LivroResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro obj){
+    public ResponseEntity<Livro> update(@PathVariable Integer id, @Valid @RequestBody Livro obj){
         Livro newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
 
     }
 
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<Livro> updatePatch(@PathVariable Integer id, @RequestBody Livro obj){
+    public ResponseEntity<Livro> updatePatch(@PathVariable Integer id, @Valid @RequestBody Livro obj){
         Livro newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
 
@@ -51,7 +52,7 @@ public class LivroResource {
 
     @PostMapping
     public ResponseEntity<Livro> create(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,
-    @RequestBody Livro obj) {
+        @Valid @RequestBody Livro obj) {
         Livro newObj = service.create(id_cat, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
