@@ -65,4 +65,13 @@ public class LivroService {
         repository.delete(obj);
 
     }
+
+    public Livro updatePartial(Integer id, Livro partialLivro) {
+        Livro existingLivro = findById(id); // Buscando o livro atual pelo ID
+
+        // Atualizando apenas os campos não nulos
+        updateData(existingLivro, partialLivro);
+
+        return repository.save(existingLivro); // Salvando as atualizações
+    }
 }

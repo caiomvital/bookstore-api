@@ -43,7 +43,7 @@ public class CategoriaResource {
         obj = service.create(obj);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/{i}")
+                .path("/{id}")
                 .buildAndExpand(obj.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(obj);
