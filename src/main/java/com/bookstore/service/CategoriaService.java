@@ -3,7 +3,7 @@ package com.bookstore.service;
 import com.bookstore.domain.Categoria;
 import com.bookstore.dtos.CategoriaDTO;
 import com.bookstore.repositories.CategoriaRepository;
-import com.bookstore.service.exceptions.ObjectNotFoundException;
+import com.bookstore.resources.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -59,7 +59,7 @@ public class CategoriaService {
         try {
             repository.deleteById(id);
         } catch(DataIntegrityViolationException e) {
-            throw new com.bookstore.service.exceptions.DataIntegrityViolationException("Não é possível excluir a categoria que possui livros associados.");
+            throw new com.bookstore.resources.exceptions.DataIntegrityViolationException("Não é possível excluir a categoria que possui livros associados.");
         }
 
     }

@@ -1,4 +1,4 @@
-package com.bookstore.service.exceptions;
+package com.bookstore.resources.exceptions;
 
 import java.io.Serial;
 

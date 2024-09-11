@@ -1,4 +1,4 @@
-package com.bookstore.service.exceptions;
+package com.bookstore.resources.exceptions;
 
 public class StandardError {
 
@@ -11,6 +11,10 @@ public class StandardError {
         this.timeStamp = timeStamp;
         this.status = status;
         this.error = error;
+    }
+
+    public StandardError() {
+        super();
     }
 
     public Long getTimeStamp() {

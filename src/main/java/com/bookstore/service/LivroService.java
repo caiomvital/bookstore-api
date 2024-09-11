@@ -4,7 +4,7 @@ package com.bookstore.service;
 import com.bookstore.domain.Categoria;
 import com.bookstore.domain.Livro;
 import com.bookstore.repositories.LivroRepository;
-import com.bookstore.service.exceptions.ObjectNotFoundException;
+import com.bookstore.resources.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
