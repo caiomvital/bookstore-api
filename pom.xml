@@ -80,6 +80,12 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- dependencia do postgres -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
+        </dependency>
 
         <!-- Starter para testes, inclui dependências como JUnit, Hamcrest, e Mockito -->
         <dependency>
