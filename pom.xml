@@ -67,24 +67,24 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Conector JDBC para o banco de dados MySQL -->
+        <!-- Conector JDBC para o banco de dados MySQL
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
-        </dependency>
+        </dependency>-->
 
-        <!-- Banco de dados H2 em memória, útil para testes e desenvolvimento local -->
+        <!-- Banco de dados H2 em memória, útil para testes e desenvolvimento local
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency> -->
         <!-- dependencia do postgres -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.6.0</version>
+            <version>42.7.2</version>
         </dependency>
 
         <!-- Starter para testes, inclui dependências como JUnit, Hamcrest, e Mockito -->
